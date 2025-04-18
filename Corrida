@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição para Corrida - Mandy's & Mandy's</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+        
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --dark: #292F36;
+            --light: #F7FFF7;
+            --blue: #3A86FF;
+            --black: #2B2D42;
+            --white: #F8F9FA;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+            background-image: url('https://images.unsplash.com/photo-1517649763962-0c623066013b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,107,107,0.8) 0%, rgba(78,205,196,0.8) 100%);
+            z-index: -1;
+        }
+        
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: rgba(247, 255, 247, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            opacity: 0.1;
+            z-index: -1;
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        h1 {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        h1::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        .banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .banner h2 {
+            font-size: 2rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .banner p {
+            font-size: 1.2rem;
+            margin: 10px 0 0;
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(135deg, 
+                          rgba(255,107,107,0.3) 0%, 
+                          rgba(78,205,196,0.3) 100%);
+            z-index: 1;
+            border-radius: 15px;
+            animation: pulse 3s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+        
+        .hero-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 3px solid white;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .required::after {
+            content: " *";
+            color: var(--primary);
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: rgba(255,255,255,0.8);
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(78,205,196,0.3);
+        }
+        
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        button:hover {
+            background-color: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .error-message {
+            color: var(--primary);
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+            font-weight: 600;
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background-color: var(--accent);
+            opacity: 0.3;
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+        
+        .shirt-color-option {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .shirt-color-option:hover {
+            transform: scale(1.1);
+        }
+        
+        .shirt-color-option.selected {
+            border-color: var(--dark);
+            transform: scale(1.1);
+        }
+        
+        .shirt-color-option.blue { background-color: var(--blue); }
+        .shirt-color-option.black { background-color: var(--black); }
+        .shirt-color-option.white { background-color: var(--white); }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .banner h2 {
+                font-size: 1.5rem;
+            }
+            
+            .banner p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-element" style="width: 50px; height: 50px; top: 10%; left: 20%; animation-delay: 0s;"></div>
+        <div class="floating-element" style="width: 30px; height: 30px; top: 60%; left: 80%; animation-delay: 2s;"></div>
+        <div class="floating-element" style="width: 40px; height: 40px; top: 80%; left: 40%; animation-delay: 4s;"></div>
+        <div class="floating-element" style="width: 60px; height: 60px; top: 30%; left: 70%; animation-delay: 6s;"></div>
+    </div>
+    
+    <div class="container">
+        <h1>Inscrição para Corrida</h1>
+        
+        <div class="banner">
+            <h2>Desafie seus limites, vença seus medos!</h2>
+            <p>Inscreva-se agora e supere seus desafios pessoais</p>
+        </div>
+        
+        <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Pessoas correndo" class="hero-image">
+        
+        <form id="registrationForm">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fullName" class="required">Nome Completo</label>
+                    <input type="text" id="fullName" name="fullName" required>
+                    <div class="error-message" id="nameError">Por favor, insira seu nome completo</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="cpf" class="required">CPF (apenas números)</label>
+                    <input type="text" id="cpf" name="cpf" maxlength="11" pattern="\d{11}" required>
+                    <div class="error-message" id="cpfError">Por favor, insira um CPF válido com 11 dígitos</div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="birthDate" class="required">Data de Nascimento</label>
+                    <input type="date" id="birthDate" name="birthDate" required>
+                    <div class="error-message" id="birthDateError">Por favor, insira sua data de nascimento</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="level" class="required">Nível</label>
+                    <select id="level" name="level" required>
+                        <option value="">Selecione...</option>
+                        <option value="professional">Profissional</option>
+                        <option value="amateur">Amador</option>
+                    </select>
+                    <div class="error-message" id="levelError">Por favor, selecione seu nível</div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="raceType" class="required">Tipo de Corrida</label>
+                    <select id="raceType" name="raceType" required>
+                        <option value="">Selecione...</option>
+                        <option value="3km">3km</option>
+                        <option value="5km">5km</option>
+                        <option value="10km">10km</option>
+                        <option value="15km">15km</option>
+                    </select>
+                    <div class="error-message" id="raceTypeError">Por favor, selecione o tipo de corrida</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="shirtSize" class="required">Tamanho da Camisa</label>
+                    <select id="shirtSize" name="shirtSize" required>
+                        <option value="">Selecione...</option>
+                        <option value="P">P</option>
+                        <option value="M">M</option>
+                        <option value="G">G</option>
+                        <option value="GG">GG</option>
+                    </select>
+                    <div class="error-message" id="shirtSizeError">Por favor, selecione o tamanho da camisa</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="required">Cor da Camisa</label>
+                <div>
+                    <input type="radio" id="shirtBlue" name="shirtColor" value="blue" required>
+                    <label for="shirtBlue" style="display: inline-block; margin-right: 15px;">
+                        <span class="shirt-color-option blue"></span> Azul
+                    </label>
+                    
+                    <input type="radio" id="shirtBlack" name="shirtColor" value="black">
+                    <label for="shirtBlack" style="display: inline-block; margin-right: 15px;">
+                        <span class="shirt-color-option black"></span> Preto
+                    </label>
+                    
+                    <input type="radio" id="shirtWhite" name="shirtColor" value="white">
+                    <label for="shirtWhite" style="display: inline-block;">
+                        <span class="shirt-color-option white"></span> Branco
+                    </label>
+                </div>
+                <div class="error-message" id="shirtColorError">Por favor, selecione a cor da camisa</div>
+            </div>
+
+            <div class="form-group">
+                <label for="bloodType" class="required">Tipo Sanguíneo</label>
+                <select id="bloodType" name="bloodType" required>
+                    <option value="">Selecione...</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+                <div class="error-message" id="bloodTypeError">Por favor, selecione seu tipo sanguíneo</div>
+            </div>
+
+            <div class="form-group">
+                <label for="existingConditions">Doenças Pré-Existentes</label>
+                <textarea id="existingConditions" name="existingConditions" rows="3" placeholder="Liste quaisquer condições médicas relevantes"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="weight" class="required">Peso (kg)</label>
+                <input type="number" id="weight" name="weight" min="30" max="200" step="0.1" required>
+                <div class="error-message" id="weightError">Por favor, insira seu peso em kg</div>
+            </div>
+
+            <button type="submit">Enviar Inscrição</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        // Configuração das partículas para o fundo interativo
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.3,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3
